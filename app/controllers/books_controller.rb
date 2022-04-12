@@ -1,6 +1,7 @@
 class BooksController < ApplicationController
   def new
      @book= Book.new
+     @books=Book.all
   end
 
   def create
@@ -9,10 +10,8 @@ class BooksController < ApplicationController
     redirect_to '/top'
   end
   
-  def index
-  end
-
   def show
+    @book = List.find(params[:id])
   end
 
   def edit
