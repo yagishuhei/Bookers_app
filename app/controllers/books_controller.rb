@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
   def new
+     @ook= Book.new
   end
 
   def index
