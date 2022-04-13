@@ -1,26 +1,15 @@
-<main>
-<h1>Books</h1>
-
-<% @books.each do |book| %>
-
-<P>Title</P>
-<span><%= book.title %></span>
-
-<P>Body</P>
-<span><%= book.body %></span>
 
 
-<%= link_to 'show', book_path(book.id) %>
-
-
-
-<% end %>
-
-</main>
-
-
-<div class="box">
 <h1>New book</h1>
+ <% if @book.errors.any? %>
+  <%= @book.errors.count %>件のエラーが発生しました
+  <ul>
+    <% @book.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+ <% end %>
+
 
 <%= form_with model: @book, url: '/books',method: :post do |f| %>
 <h4>本のタイトル</h4>
@@ -32,6 +21,5 @@
 <%= f.submit '投稿' %>
 
 <% end %>
-
 </div>
 
