@@ -1,7 +1,8 @@
-<span>Book was successfully created</span>
 
 <h4>Title</h4>
 <p><%= @book.title %></p>
 
 <h4>Body</h4>
 <p><%= @book.body %></p>
+
+<%= link_to "edit",edit_book_path(@book.id)%>
