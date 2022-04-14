@@ -1,4 +1,12 @@
 <h1>編集画面</h1>
+ <% if @book.errors.any? %>
+  <%= @book.errors.count %>errors occurred
+  <ul>
+    <% @book.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+ <% end %>
 
 <%= form_with model: @book do |f| %>
 
@@ -12,5 +20,7 @@
 
 <% end %>
 
+<%= link_to 'show', book_path(@book.id) %>
+<%= link_to "back",books_path %>
 
 
